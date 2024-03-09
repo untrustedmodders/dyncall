@@ -194,7 +194,7 @@
 		  {"type": "ptr64", "name": "vm"},
 		  {"type": "ptr64", "name": "funcptr"}
 		],
-		"retType": {"type": "char"}
+		"retType": {"type": "char8"}
 	  },
 	  {
 		"name": "CallInt8",
@@ -392,7 +392,7 @@
 		"name": "GetModeFromCCSigChar",
 		"funcName": "GetModeFromCCSigChar",
 		"paramTypes": [
-		  {"type": "char", "name": "sigChar"}
+		  {"type": "char8", "name": "sigChar"}
 		],
 		"retType": {"type": "int32"}
 	  }
