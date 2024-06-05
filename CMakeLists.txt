@@ -47,8 +47,8 @@ if(UNIX AND NOT APPLE)
     target_compile_definitions(${PROJECT_NAME} PUBLIC _GLIBCXX_USE_CXX11_ABI=0)
 endif()
 
-set(DYNCALL_VERSION "${CMAKE_PROJECT_VERSION}")
-set(DYNCALL_PACKAGE "dyncall")
+set(DYNCALL_VERSION "${CMAKE_PROJECT_VERSION}" CACHE STRING "Set version name")
+set(DYNCALL_PACKAGE "dyncall" CACHE STRING "Set package name")
 
 configure_file(
 	${CMAKE_SOURCE_DIR}/dyncall.pplugin.in
