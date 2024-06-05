@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
-if (POLICY CMP0092)
+if(POLICY CMP0092)
     cmake_policy(SET CMP0092 NEW) # Don't add -W3 warning level by default.
-endif ()
+endif()
 
 
 project(dync VERSION 1.0.0.0 DESCRIPTION "DynCall Plugin" HOMEPAGE_URL "https://github.com/untrustedmodders/dyncall" LANGUAGES CXX)
@@ -37,12 +37,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/exports)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "dyncall")
 
-set_target_properties(${PROJECT_NAME} PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/plugify/plugins/dyncall/bin"
-        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/plugify/plugins/dyncall/bin"
-        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/addons/plugify/plugins/dyncall/bin"
-)
-
 if(APPLE)
 	target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,-exported_symbols_list,${CMAKE_CURRENT_SOURCE_DIR}/sym/exported_symbols.lds")
 elseif(UNIX)
@@ -53,8 +47,10 @@ if(UNIX AND NOT APPLE)
     target_compile_definitions(${PROJECT_NAME} PUBLIC _GLIBCXX_USE_CXX11_ABI=0)
 endif()
 
-add_custom_command(
-        TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/dyncall.pplugin ${CMAKE_BINARY_DIR}/addons/plugify/plugins/dyncall/dyncall.pplugin
+set(DYNCALL_VERSION "${CMAKE_PROJECT_VERSION}")
+set(DYNCALL_PACKAGE "dyncall")
+
+configure_file(
+	${CMAKE_SOURCE_DIR}/dyncall.pplugin.in
+	${CMAKE_BINARY_DIR}/dyncall.pplugin
 )

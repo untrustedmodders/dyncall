@@ -1,14 +1,14 @@
 {
 	"fileVersion": 1,
 	"version": 1,
-	"versionName": "1.0",
+	"versionName": "${DYNCALL_VERSION}",
 	"friendlyName": "DynCall API",
 	"description": "The dyncall library encapsulates architecture-, OS- and compiler-specific function call semantics.",
 	"createdBy": "Daniel Adler & Tassilo Philipp",
 	"createdByURL": "https://dyncall.org/",
 	"docsURL": "https://dyncall.org/documentation",
-	"downloadURL": "https://github.com/untrustedmodders/dyncall/releases/download/v1.0/dyncall.zip",
-	"updateURL": "https://raw.githubusercontent.com/untrustedmodders/dyncall/main/dyncall.json",
+	"downloadURL": "https://github.com/untrustedmodders/dyncall/releases/download/v${DYNCALL_VERSION}/${DYNCALL_PACKAGE}.zip",
+	"updateURL": "https://untrustedmodders.github.com/dyncall/dyncall.json",
 	"entryPoint": "bin/dyncall",
 	"supportedPlatforms": [],
 	"languageModule": {
