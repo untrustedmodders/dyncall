@@ -12,6 +12,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+if(UNIX AND NOT APPLE)
+    set(LINUX TRUE)
+endif()
+
 add_subdirectory(external/dyncall)
 
 #
@@ -38,19 +46,22 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/exports)
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "dyncall")
 
 if(APPLE)
-	target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,-exported_symbols_list,${CMAKE_CURRENT_SOURCE_DIR}/sym/exported_symbols.lds")
+    target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,-exported_symbols_list,${CMAKE_CURRENT_SOURCE_DIR}/sym/exported_symbols.lds")
 elseif(UNIX)
-	target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,--version-script,${CMAKE_CURRENT_SOURCE_DIR}/sym/version_script.lds")
+    target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,--version-script,${CMAKE_CURRENT_SOURCE_DIR}/sym/version_script.lds")
 endif()
 
-if(UNIX AND NOT APPLE)
+if(LINUX)
     target_compile_definitions(${PROJECT_NAME} PUBLIC _GLIBCXX_USE_CXX11_ABI=0)
+	target_compile_options(${PROJECT_NAME} PUBLIC -stdlib=libc++)
+	target_link_libraries(${PROJECT_NAME} PUBLIC -static-libc++ -static-libgcc)
+	...
 endif()
 
 set(DYNCALL_VERSION "${CMAKE_PROJECT_VERSION}" CACHE STRING "Set version name")
 set(DYNCALL_PACKAGE "dyncall" CACHE STRING "Set package name")
 
 configure_file(
-	${CMAKE_SOURCE_DIR}/dyncall.pplugin.in
-	${CMAKE_BINARY_DIR}/dyncall.pplugin
+    ${CMAKE_SOURCE_DIR}/dyncall.pplugin.in
+    ${CMAKE_BINARY_DIR}/dyncall.pplugin
 )
