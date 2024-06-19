@@ -168,11 +168,11 @@
 		"retType": {"type": "void"}
 	  },
 	  {
-		"name": "ArgStruct",
-		"funcName": "ArgStruct",
+		"name": "ArgAggr",
+		"funcName": "ArgAggr",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "vm"},
-		  {"type": "ptr64", "name": "structptr"},
+		  {"type": "ptr64", "name": "aggrptr"},
 		  {"type": "ptr64", "name": "value"}
 		],
 		"retType": {"type": "void"}
@@ -296,12 +296,12 @@
 		"retType": {"type": "ptr64"}
 	  },
 	  {
-		"name": "CallStruct",
-		"funcName": "CallStruct",
+		"name": "CallAggr",
+		"funcName": "CallAggr",
 		"paramTypes": [
 		  {"type": "ptr64", "name": "vm"},
 		  {"type": "ptr64", "name": "funcptr"},
-		  {"type": "ptr64", "name": "structptr"},
+		  {"type": "ptr64", "name": "aggrptr"},
 		  {"type": "ptr64", "name": "returnValue"}
 		],
 		"retType": {"type": "void"}
@@ -317,77 +317,42 @@
 	  },	
 	  
 	  {
-		"name": "NewStruct",
-		"funcName": "NewStruct",
+		"name": "NewAggr",
+		"funcName": "NewAggr",
 		"paramTypes": [
 		  {"type": "uint64", "name": "fieldCount"},
-		  {"type": "int32", "name": "alignment"}
+		  {"type": "uint64", "name": "size"}
 		],
 		"retType": {"type": "ptr64"}
 	  },	
 	  {
-		"name": "StructField",
-		"funcName": "StructField",
+		"name": "AggrField",
+		"funcName": "AggrField",
 		"paramTypes": [
-		  {"type": "ptr64", "name": "structptr"},
-		  {"type": "int32", "name": "type"},
-		  {"type": "int32", "name": "alignment"},
+		  {"type": "ptr64", "name": "Aggrptr"},
+		  {"type": "char8", "name": "type"},
+		  {"type": "int32", "name": "offset"},
 		  {"type": "uint64", "name": "arrayLength"}
 		],
 		"retType": {"type": "void"}
-	  },	
+	  },
 	  {
-		"name": "SubStruct",
-		"funcName": "SubStruct",
+		"name": "CloseAggr",
+		"funcName": "CloseAggr",
 		"paramTypes": [
-		  {"type": "ptr64", "name": "structptr"},
-		  {"type": "uint64", "name": "fieldCount"},
-		  {"type": "int32", "name": "alignment"},
-		  {"type": "uint64", "name": "arrayLength"}
+		  {"type": "ptr64", "name": "Aggrptr"}
 		],
 		"retType": {"type": "void"}
-	  },		
+	  },
 	  {
-		"name": "CloseStruct",
-		"funcName": "CloseStruct",
+		"name": "FreeAggr",
+		"funcName": "FreeAggr",
 		"paramTypes": [
-		  {"type": "ptr64", "name": "structptr"}
+		  {"type": "ptr64", "name": "Aggrptr"}
 		],
 		"retType": {"type": "void"}
-	  },			
-	  {
-		"name": "StructSize",
-		"funcName": "StructSize",
-		"paramTypes": [
-		  {"type": "ptr64", "name": "structptr"}
-		],
-		"retType": {"type": "uint64"}
-	  },				
-	  {
-		"name": "StructAlignment",
-		"funcName": "StructAlignment",
-		"paramTypes": [
-		  {"type": "ptr64", "name": "structptr"}
-		],
-		"retType": {"type": "uint64"}
-	  },					
-	  {
-		"name": "FreeStruct",
-		"funcName": "FreeStruct",
-		"paramTypes": [
-		  {"type": "ptr64", "name": "structptr"}
-		],
-		"retType": {"type": "void"}
-	  },	
-	  
-	  {
-		"name": "DefineStruct",
-		"funcName": "DefineStruct",
-		"paramTypes": [
-		  {"type": "string", "name": "signature"}
-		],
-		"retType": {"type": "ptr64"}
-	  },					
+	  },
+
 	  {
 		"name": "GetModeFromCCSigChar",
 		"funcName": "GetModeFromCCSigChar",

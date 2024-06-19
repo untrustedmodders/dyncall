@@ -48,7 +48,7 @@ PLUGIN_API void ArgDouble(DCCallVM* vm, double value) { dcArgDouble(vm, value); 
 extern "C"
 PLUGIN_API void ArgPointer(DCCallVM* vm, void* value) { dcArgPointer(vm, value); }
 extern "C"
-PLUGIN_API void ArgStruct(DCCallVM* vm, DCstruct* s, void* value) { dcArgStruct(vm, s, value); }
+PLUGIN_API void ArgAggr(DCCallVM* vm, DCaggr* ag, void* value) { dcArgAggr(vm, ag, value); }
 
 extern "C"
 PLUGIN_API void CallVoid(DCCallVM* vm, void* funcptr) { dcCallVoid(vm, funcptr); }
@@ -79,27 +79,19 @@ PLUGIN_API double CallDouble(DCCallVM* vm, void* funcptr) { return dcCallDouble(
 extern "C"
 PLUGIN_API void* CallPointer(DCCallVM* vm, void* funcptr) { return dcCallPointer(vm, funcptr); }
 extern "C"
-PLUGIN_API void CallStruct(DCCallVM* vm, void* funcptr, DCstruct* s, void* returnValue) { dcCallStruct(vm, funcptr, s, returnValue); } 
+PLUGIN_API void CallAggr(DCCallVM* vm, void* funcptr, DCaggr* ag, void* returnValue) { dcCallAggr(vm, funcptr, ag, returnValue); } 
 
 extern "C"
 PLUGIN_API int GetError(DCCallVM* vm) { return dcGetError(vm); }
 
 extern "C"
-PLUGIN_API DCstruct* NewStruct(size_t fieldCount, int alignment) { return dcNewStruct(fieldCount, alignment); }
+PLUGIN_API DCaggr* NewAggr(size_t fieldCount, size_t size) { return dcNewAggr(fieldCount, size); }
 extern "C"
-PLUGIN_API void StructField(DCstruct* s, int type, int alignment, size_t arrayLength) { dcStructField(s, type, alignment, arrayLength); } 
+PLUGIN_API void AggrField(DCaggr* ag, char type, int offset, size_t arrayLength) { dcAggrField(ag, type, offset, arrayLength); }
 extern "C"
-PLUGIN_API void SubStruct(DCstruct* s, size_t fieldCount, int alignment, size_t arrayLength) { dcSubStruct(s, fieldCount, alignment, arrayLength); } 
+PLUGIN_API void CloseAggr(DCaggr* ag) { dcCloseAggr(ag); }
 extern "C"
-PLUGIN_API void CloseStruct(DCstruct* s) { dcCloseStruct(s); } 	  	
-extern "C"
-PLUGIN_API size_t StructSize(DCstruct* s) { return dcStructSize(s); } 	
-extern "C"
-PLUGIN_API size_t StructAlignment(DCstruct* s) { return dcStructAlignment(s); }  	
-extern "C"
-PLUGIN_API void FreeStruct(DCstruct* s) { dcFreeStruct(s); } 	
+PLUGIN_API void FreeAggr(DCaggr* ag) { dcFreeAggr(ag); }
 
-extern "C"
-PLUGIN_API DCstruct* DefineStruct(const std::string& signature) { return dcDefineStruct(signature.c_str()); }
 extern "C"
 PLUGIN_API int GetModeFromCCSigChar(char sigChar) { return dcGetModeFromCCSigChar(sigChar); }

@@ -1,3 +1,0 @@
-[submodule "external/dyncall"]
-	path = external/dyncall
-	url = https://github.com/LWJGL-CI/dyncall
