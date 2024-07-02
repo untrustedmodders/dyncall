@@ -306,6 +306,16 @@
 		],
 		"retType": {"type": "void"}
 	  },
+
+	  {
+		"name": "BeginCallAggr",
+		"funcName": "BeginCallAggr",
+		"paramTypes": [
+		  {"type": "ptr64", "name": "vm"},
+		  {"type": "ptr64", "name": "aggrptr"}
+		],
+		"retType": {"type": "void"}
+	  },
 	  
 	  {
 		"name": "GetError",

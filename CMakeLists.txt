@@ -56,7 +56,7 @@ if(LINUX)
     target_link_libraries(${PROJECT_NAME} PUBLIC -static-libstdc++ -static-libgcc)
 endif()
 
-set(DYNCALL_VERSION "${CMAKE_PROJECT_VERSION}" CACHE STRING "Set version name")
+set(DYNCALL_VERSION "0" CACHE STRING "Set version name")
 set(DYNCALL_PACKAGE "dyncall" CACHE STRING "Set package name")
 
 configure_file(

@@ -36,6 +36,7 @@
 		CallDouble;
 		CallPointer;
 		CallAggr;
+		BeginCallAggr;
 		GetError;
 		NewAggr;
 		AggrField;
