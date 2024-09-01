@@ -53,7 +53,6 @@ endif()
 
 if(LINUX)
     target_compile_definitions(${PROJECT_NAME} PUBLIC _GLIBCXX_USE_CXX11_ABI=0)
-    target_link_libraries(${PROJECT_NAME} PUBLIC -static-libstdc++ -static-libgcc)
 endif()
 
 set(DYNCALL_VERSION "0" CACHE STRING "Set version name")
