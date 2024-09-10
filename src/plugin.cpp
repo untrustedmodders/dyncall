@@ -2,7 +2,7 @@
 #include <plugin_export.h>
 #include <dyncall/dyncall.h>
 
-class DynCallPlugin : public plugify::IPluginEntry {
+class DynCallPlugin : public plg::IPluginEntry {
 	void OnPluginStart() override {}
 
 	void OnPluginEnd() override {}
