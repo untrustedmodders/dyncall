@@ -12,5 +12,5 @@ check_cxx_source_compiles("
 cmake_pop_check_state()
 
 if(NOT COMPILER_SUPPORTS_FORMAT)
-    include(fmt.cmake)
+    include(cmake/fmt.cmake)
 endif()
