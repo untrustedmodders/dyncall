@@ -3,7 +3,8 @@
 #include <cassert>
 #include <cstdint>
 #include <memory>
-#include <string>
+#include <atomic>
+#include <string_view>
 #include <type_traits>
 
 #include <plugify/compat_format.h>
@@ -999,8 +1000,8 @@ namespace plg {
 	int basic_string<Alloc>::compare(size_type pos1, size_type n1, const value_type* s, size_type pos2, size_type n2) const {
 		return compare(begin() + pos1,
 					   begin() + pos1 + std::min(n1, size() - pos1),
-					   s,
-					   s + n2);
+					   s + pos2,
+					   s + pos2 + n2);
 	}
 
 	template<class Alloc>
@@ -1633,9 +1634,9 @@ namespace plg {
 
 		auto ret = strtol(cstr, &ptr, base);
 		if (pos != nullptr)
-			*pos = cstr - ptr;
+			*pos = static_cast<std::size_t>(cstr - ptr);
 
-		return ret;
+		return static_cast<int>(ret);
 	}
 
 	inline long stol(const string& str, std::size_t* pos = nullptr, int base = 10) {
@@ -1644,7 +1645,7 @@ namespace plg {
 
 		auto ret = strtol(cstr, &ptr, base);
 		if (pos != nullptr)
-			*pos = cstr - ptr;
+			*pos = static_cast<std::size_t>(cstr - ptr);
 
 		return ret;
 	}
@@ -1655,7 +1656,7 @@ namespace plg {
 
 		auto ret = strtoll(cstr, &ptr, base);
 		if (pos != nullptr)
-			*pos = cstr - ptr;
+			*pos = static_cast<std::size_t>(cstr - ptr);
 
 		return ret;
 	}
@@ -1666,7 +1667,7 @@ namespace plg {
 
 		auto ret = strtoul(cstr, &ptr, base);
 		if (pos != nullptr)
-			*pos = cstr - ptr;
+			*pos = static_cast<std::size_t>(cstr - ptr);
 
 		return ret;
 	}
@@ -1677,7 +1678,7 @@ namespace plg {
 
 		auto ret = strtoull(cstr, &ptr, base);
 		if (pos != nullptr)
-			*pos = cstr - ptr;
+			*pos = static_cast<std::size_t>(cstr - ptr);
 
 		return ret;
 	}
@@ -1688,7 +1689,7 @@ namespace plg {
 
 		auto ret = strtof(cstr, &ptr);
 		if (pos != nullptr)
-			*pos = cstr - ptr;
+			*pos = static_cast<std::size_t>(cstr - ptr);
 
 		return ret;
 	}
@@ -1699,7 +1700,7 @@ namespace plg {
 
 		auto ret = strtod(cstr, &ptr);
 		if (pos != nullptr)
-			*pos = cstr - ptr;
+			*pos = static_cast<std::size_t>(cstr - ptr);
 
 		return ret;
 	}
@@ -1710,7 +1711,7 @@ namespace plg {
 
 		auto ret = strtold(cstr, &ptr);
 		if (pos != nullptr)
-			*pos = cstr - ptr;
+			*pos = static_cast<std::size_t>(cstr - ptr);
 
 		return ret;
 	}
