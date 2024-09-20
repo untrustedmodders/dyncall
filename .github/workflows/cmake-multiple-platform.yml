@@ -68,7 +68,7 @@ jobs:
           cp build/${{env.BUILD_TYPE}}/dyncall.dll build/output/bin
           cp build/dyncall.pplugin build/output
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: dyncall-build-windows-${{ env.GITHUB_SHA_SHORT }}
           path: build/output/
@@ -105,7 +105,7 @@ jobs:
           mv build/libdyncall.so build/output/bin
           mv build/dyncall.pplugin build/output
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: dyncall-build-linux-${{ env.GITHUB_SHA_SHORT }}
           path: build/output/
