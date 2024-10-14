@@ -240,7 +240,7 @@ jobs:
             
                 if len(versions) > 10:
                     versions = versions[2:]
-            
+                
                 return data
             
             data = load_json_from_url(json_url)
