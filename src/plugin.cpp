@@ -1,4 +1,4 @@
-#include <plugify/cpp_plugin.h>
+#include <plugify/cpp_plugin.hpp>
 #include <plugin_export.h>
 #include <dyncall/dyncall.h>
 
