@@ -2,10 +2,10 @@
 #include <plugin_export.h>
 #include <dyncall/dyncall.h>
 
-class DynCallPlugin : public plg::IPluginEntry {
-	void OnPluginStart() override {}
+class DynCallPlugin final : public plg::IPluginEntry {
+	void OnPluginStart() final {}
 
-	void OnPluginEnd() override {}
+	void OnPluginEnd() final {}
 } g_dynCallPlugin;
 
 EXPOSE_PLUGIN(PLUGIN_API, &g_dynCallPlugin)
