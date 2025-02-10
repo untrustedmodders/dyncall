@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/untrustedmodders/dyncall/compare/v1.0.2...v1.0.3) (2025-02-10)
+
+
+### Bug Fixes
+
+* version and exports ([7819499](https://github.com/untrustedmodders/dyncall/commit/78194991ce38f475e9de5808f7330d2cd8a0f377))
+
 ## [1.0.2](https://github.com/untrustedmodders/dyncall/compare/v1.0.1...v1.0.2) (2025-02-05)
 
 
