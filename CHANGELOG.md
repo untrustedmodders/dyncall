@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/untrustedmodders/dyncall/compare/v1.1.1...v1.1.2) (2025-03-13)
+
+
+### Bug Fixes
+
+* update includes ([e6e94ac](https://github.com/untrustedmodders/dyncall/commit/e6e94ac17a5137d0e15501696861de98a0f50f83))
+
 ## [1.1.1](https://github.com/untrustedmodders/dyncall/compare/v1.1.0...v1.1.1) (2025-03-13)
 
 
