@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/untrustedmodders/dyncall/compare/v1.1.3...v1.1.4) (2025-04-03)
+
+
+### Bug Fixes
+
+* add cmake versioning ([eb133f8](https://github.com/untrustedmodders/dyncall/commit/eb133f8b40eb4e4995595ba5a25ff7898b49f657))
+
 ## [1.1.3](https://github.com/untrustedmodders/dyncall/compare/v1.1.2...v1.1.3) (2025-03-26)
 
 
