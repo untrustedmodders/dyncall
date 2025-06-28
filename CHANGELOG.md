@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/untrustedmodders/dyncall/compare/v1.1.4...v1.1.5) (2025-06-28)
+
+
+### Bug Fixes
+
+* update readme and add missing permission ([3c02b24](https://github.com/untrustedmodders/dyncall/commit/3c02b24c6000e8df4cc593edbeb9879bae8a618a))
+
 ## [1.1.4](https://github.com/untrustedmodders/dyncall/compare/v1.1.3...v1.1.4) (2025-06-26)
 
 
