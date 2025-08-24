@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/untrustedmodders/dyncall/compare/v1.1.5...v1.1.6) (2025-08-24)
+
+
+### Bug Fixes
+
+* add symbols ([0e2f3a3](https://github.com/untrustedmodders/dyncall/commit/0e2f3a3e5ce0f46d42d77a4eb85e97e344bdd87d))
+
 ## [1.1.5](https://github.com/untrustedmodders/dyncall/compare/v1.1.4...v1.1.5) (2025-08-01)
 
 
